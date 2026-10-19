@@ -1,0 +1,171 @@
+/* ============================================================
+   The Art of Learning — shared course stylesheet
+   Tufte-inspired: warm paper, serif body, generous margins,
+   prints cleanly, bilingual (中文 + English) friendly.
+   Linked by every lesson and reference document.
+   ============================================================ */
+
+:root {
+  --paper:      #fdfcf8;
+  --ink:        #1a1a18;
+  --ink-soft:   #45433d;
+  --rule:       #e3ded2;
+  --accent:     #2c4a7c;   /* deep indigo — headings, key terms */
+  --accent-2:   #7a5230;   /* walnut — secondary, English glosses */
+  --highlight:  #f3eee0;   /* soft parchment — callouts */
+  --max:        42rem;
+  --serif:      "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Songti SC", "STSong", serif;
+  --sans:       "Inter", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+html { font-size: 18px; -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.6;
+  margin: 0;
+  padding: 4rem 1.5rem 6rem;
+}
+
+.wrap { max-width: var(--max); margin: 0 auto; }
+
+/* ---- Course chrome ---- */
+.eyebrow {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  margin: 0 0 0.4rem;
+}
+.lesson-no { color: var(--accent); font-weight: 600; }
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.15;
+  margin: 0 0 0.3rem;
+  font-weight: 600;
+}
+h1 .en { display:block; font-size: 1.05rem; color: var(--ink-soft); font-style: italic; font-weight: 400; margin-top: .3rem;}
+h2 {
+  font-size: 1.3rem;
+  margin: 2.6rem 0 0.6rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--rule);
+  font-weight: 600;
+}
+h3 { font-size: 1.05rem; margin: 1.8rem 0 0.4rem; color: var(--accent-2); }
+
+p { margin: 0.7rem 0; }
+.lead { font-size: 1.12rem; color: var(--ink-soft); }
+
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(44,74,124,0.3); }
+a:hover { border-bottom-color: var(--accent); }
+
+/* ---- Key term: bilingual ---- */
+.term { color: var(--accent); font-weight: 600; }
+.en   { font-family: var(--sans); font-size: 0.86em; color: var(--accent-2); }
+em.en, .en em { font-style: italic; }
+
+/* ---- Callout / aside ---- */
+.callout {
+  background: var(--highlight);
+  border-left: 3px solid var(--accent);
+  padding: 0.9rem 1.1rem;
+  margin: 1.4rem 0;
+  border-radius: 0 4px 4px 0;
+}
+.callout .label {
+  font-family: var(--sans); font-size: 0.7rem; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--accent); display:block; margin-bottom:.3rem;
+}
+
+.aside {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  border-left: 2px solid var(--rule);
+  padding-left: 0.9rem;
+  margin: 1.2rem 0;
+}
+
+/* ---- The "win" banner ---- */
+.win {
+  font-family: var(--sans);
+  background: var(--accent);
+  color: #f4f1e8;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  margin: 1.2rem 0 2rem;
+}
+.win b { color: #fff; }
+
+/* ---- Tables / matrices ---- */
+table { border-collapse: collapse; width: 100%; margin: 1.4rem 0; font-size: 0.95rem; }
+th, td { text-align: left; padding: 0.5rem 0.7rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-family: var(--sans); font-size: 0.78rem; letter-spacing: .05em; text-transform: uppercase; color: var(--accent-2); }
+
+/* ---- Card grid (course map modules, concept clusters) ---- */
+.cards { display: grid; grid-template-columns: 1fr; gap: 0.8rem; margin: 1.4rem 0; }
+@media (min-width: 640px) { .cards.two { grid-template-columns: repeat(2, 1fr); } }
+.card {
+  border: 1px solid var(--rule); border-top: 4px solid var(--accent);
+  border-radius: 6px; padding: 0.9rem 1rem; background: #fff;
+}
+.card.m2 { border-top-color: var(--accent-2); }
+.card.m3 { border-top-color: #4d6b52; }
+.card.m4 { border-top-color: #8a5a6d; }
+.card h4 { margin: 0 0 .2rem; font-size: 1rem; }
+.card .sub { font-family: var(--sans); font-size: 0.72rem; color: var(--ink-soft); margin-bottom:.5rem; }
+.card ol, .card ul { margin: 0; padding-left: 1.2rem; font-size: 0.9rem; }
+.card li { margin: 0.25rem 0; }
+.card li .zh { display:block; color: var(--ink-soft); font-size: 0.85em; }
+.card li.done::marker { color: var(--accent); font-weight: 700; }
+
+/* ---- Reveal (model answers, "check yourself") ---- */
+details.reveal {
+  border: 1px solid var(--rule); border-radius: 6px; background: #fff;
+  padding: .6rem .9rem; margin: .7rem 0; font-family: var(--sans); font-size: .92rem;
+}
+details.reveal > summary {
+  cursor: pointer; color: var(--accent); font-weight: 600; font-size: .85rem; list-style: none;
+}
+details.reveal > summary::-webkit-details-marker { display: none; }
+details.reveal > summary::before { content: "▸ "; }
+details.reveal[open] > summary::before { content: "▾ "; }
+details.reveal p { margin: .6rem 0 .2rem; color: var(--ink-soft); line-height: 1.55; }
+
+/* ---- Prompt box for user-written answers ---- */
+.prompt-box {
+  font-family: var(--sans); font-size: .95rem; background: var(--highlight);
+  border-radius: 6px; padding: .7rem .9rem; margin: 1rem 0 .3rem; color: var(--ink);
+}
+.prompt-box .n { color: var(--accent); font-weight: 700; margin-right: .4rem; }
+
+/* ---- Footer / navigation ---- */
+.foot {
+  margin-top: 3.5rem; padding-top: 1.2rem; border-top: 1px solid var(--rule);
+  font-family: var(--sans); font-size: 0.85rem; color: var(--ink-soft);
+}
+.foot a { font-weight: 500; }
+.ask {
+  font-family: var(--sans); font-size: 0.88rem;
+  background: #fff; border: 1px dashed var(--accent); border-radius: 6px;
+  padding: 0.8rem 1rem; margin: 2rem 0 0; color: var(--ink-soft);
+}
+
+/* ---- Source recommendation ---- */
+.source { font-family: var(--sans); font-size: 0.9rem; background:#fff; border:1px solid var(--rule); border-radius:6px; padding: .8rem 1rem; margin: 1.4rem 0; }
+.source .label { color: var(--accent); font-weight:600; }
+
+/* ---- Print ---- */
+@media print {
+  body { background: #fff; padding: 0; font-size: 11pt; }
+  .ask, .quiz-reset, .sort-reset { display: none; }
+  a { color: var(--ink); border: none; }
+  .card, .source, .callout { break-inside: avoid; }
+  details.reveal { break-inside: avoid; }
+  details.reveal[open] > summary { display: none; }
+}
